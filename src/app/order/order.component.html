@@ -1,0 +1,118 @@
+<form
+  class="max-w-screen-xl mx-auto px-32 py-16 bg-[#FBFAFF] flex flex-col gap-11 rounded-2xl"
+  action=""
+>
+  <div class="flex flex-col gap-4">
+    <label for="">
+      სახელი გვარი:
+      <input type="text" />
+    </label>
+    <label for="">
+      E-mail:
+      <input type="email" />
+    </label>
+    <label for="">კომპანია: <input type="text" /></label>
+    <label for="">საკონტაქტო ნომერი: <input type="number" /></label>
+  </div>
+  <div class="flex items-center gap-10">
+    <label for="">დამკვეთის ტიპი:</label>
+    <ul class="flex gap-5">
+      <li
+        *ngFor="
+          let item of [
+            'მფლობელი',
+            'დეველოპერი',
+            'საპროექტო',
+            'სამშენებლო',
+            'სხვა'
+          ]
+        "
+        [ngClass]="{ 'bg-sun-300': selectedItem === item }"
+        class="bg-mine-shaft-300 cursor-pointer rounded-md text-center p-2 w-32 text-mine-shaft-700"
+        (click)="selectItem(item)"
+      >
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+  <div class="flex items-center gap-10">
+    <h2 class="text-xl">ობიექტის მახასიათებლები :</h2>
+    <div class="flex gap-4">
+      <label for="">
+        ფართობი
+        <input type="text" class="w-20" />
+      </label>
+      <label for="">
+        სართულების რაოდენობა
+        <input type="number" class="w-16" />
+      </label>
+    </div>
+  </div>
+  <section class="flex justify-between">
+    <div>
+      <h1 class="mb-2">სერვის(ებ)ი:</h1>
+      <select class="p-2 rounded-md" name="" id="">
+        <option value="">მოცულობათა უწყისის შედგენა</option>
+        <option value="">საორიენტაციო ბიუჯეტირება</option>
+      </select>
+    </div>
+    <div>
+      <h1 class="mb-2">დისციპლინები</h1>
+      <ul class="flex flex-row gap-4 flex-wrap">
+        <li
+          *ngFor="
+            let item of [
+              'არქიტექტურა',
+              'კონსტრუქცია',
+              'გათბობა-გაგრილება',
+              'ვენტილაცია'
+            ]
+          "
+          [ngClass]="{ 'bg-sun-300': selectedService === item }"
+          class="bg-mine-shaft-300 cursor-pointer rounded-md whitespace-nowrap text-center p-2 text-mine-shaft-700"
+          (click)="selectService(item)"
+        >
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </section>
+  <div>
+    <h1 class="mb-2">ხარჯთაღრიცხვის ენა:</h1>
+    <select class="p-2 rounded-md" name="" id="">
+      <option value="">ქართული</option>
+      <option value="">ინგლისური</option>
+      <option value="">ორივე</option>
+    </select>
+  </div>
+  <div class="flex items-center gap-5">
+    <h1>
+      შეკვეთის მიღების <br />
+      სასურველი ვადა:
+    </h1>
+    <input type="text" />
+  </div>
+  <div>
+    <h1>არსებული დოკუმენტაცია:</h1>
+    <ul class="flex gap-5 mt-3">
+      <li
+        *ngFor="
+          let item of ['არქიტექტურული პროექტი', 'კონსტრუქციული', 'საინჟინრო']
+        "
+        [ngClass]="{ 'bg-sun-300': selectedDocumentation === item }"
+        class="bg-mine-shaft-300 cursor-pointer rounded-md text-center whitespace-nowrap p-2 text-mine-shaft-700"
+        (click)="selectDocumentation(item)"
+      >
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+  <div class="px-4">
+    <button
+      type="submit"
+      class="bg-fountain-blue-500 text-mine-shaft-100 text-lg p-2 rounded-lg w-full"
+    >
+      გაგზავნა
+    </button>
+  </div>
+</form>

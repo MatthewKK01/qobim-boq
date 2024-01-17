@@ -1,0 +1,10 @@
+li{
+    width: 95px;
+    height: 32px;
+    background-color: blue;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @apply bg-fountain-blue-400 rounded-md
+}
